@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ToDo list</title>
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="module" src="js/script.js" defer></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="container header__wrapper">
+				<a href="#" class="header__logo">
+					<img
+						src="./images/rocket.svg"
+						alt="Rocket"
+						width="22"
+						height="36"
+					/>
+					<span class="header__logo-wrap">
+						<span class="header__logo-text header__logo-text--blue">to</span>
+						<span class="header__logo-text header__logo-text--violet">do</span>
+					</span>
+				</a>
+			</div>
+			<section class="header__theme theme">
+				<div class="theme__icons">
+					<button data-page-light class="theme__icons-icon light">
+						<img
+						src="./images/dark.svg"
+						alt="dark"
+						width="40"
+						height="40"
+					/>
+					</button>
+					<button data-page-dark class="theme__icons-icon dark hidden">
+					<img
+					src="./images/light.svg"
+					alt="light"
+					width="40"
+					height="40"
+				/>
+					</button>
+				</div>
+			</section>
+		</header>
+
+		<main class="main">
+			<div class="container main__wrapper">
+				<form class="form" data-js-todo-form>
+					<input
+						type="text"
+						class="form__input"
+						data-js-todo-form-input
+						placeholder="Докинь тексток"
+						maxlength="500"
+						aria-label="Введите текст задачи"
+						autocomplete="off"
+					/>
+					<button
+						type="submit"
+						class="form__submit"
+						data-js-todo-form-create-button
+						aria-label="Докинуть"
+					>
+					<span>
+						Докинуть
+					</span>
+						<svg	class="form__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.95101 1.45158C9.24294 1.45158 10.5059 1.83468 11.58 2.55244C12.6542 3.27019 13.4915 4.29037 13.9859 5.48395C14.4803 6.67754 14.6096 7.99092 14.3576 9.25802C14.1056 10.5251 13.4834 11.689 12.5699 12.6026C11.6564 13.5161 10.4925 14.1382 9.22536 14.3903C7.95826 14.6423 6.64487 14.5129 5.45129 14.0185C4.2577 13.5241 3.23753 12.6869 2.51978 11.6127C1.80202 10.5385 1.41892 9.2756 1.41892 7.98368C1.42561 6.25332 2.11596 4.59574 3.33952 3.37218C4.56307 2.14862 6.22065 1.45827 7.95101 1.45158ZM7.95101 5.77648e-06C6.3734 0.00645971 4.83306 0.480174 3.52446 1.36134C2.21585 2.24252 1.19765 3.49164 0.598391 4.95102C-0.000868797 6.4104 -0.15432 8.01461 0.15741 9.56114C0.46914 11.1077 1.23208 12.5272 2.3499 13.6404C3.46773 14.7537 4.89033 15.5108 6.43811 15.8162C7.98589 16.1217 9.58946 15.9617 11.0464 15.3564C12.5033 14.7512 13.7483 13.7279 14.6241 12.4158C15.4999 11.1036 15.9673 9.5613 15.9673 7.98368C15.9674 6.93249 15.7598 5.89165 15.3565 4.92089C14.9533 3.95014 14.3623 3.06857 13.6174 2.32679C12.8726 1.58501 11.9887 0.997618 11.0163 0.598327C10.0439 0.199035 9.00219 -0.00429452 7.95101 5.77648e-06Z" fill="#F2F2F2"/>
+							<path d="M11.6743 7.38127H8.46268V4.16966H7.38126V7.38127H4.16602V8.4627H7.38126V11.6743H8.46268V8.4627H11.6743V7.38127Z" fill="#F2F2F2"/>
+						</svg>
+							
+					</button>
+				</form>
+	
+				<div class="main__status">
+					<div class="main__status-row">
+						<div class="status">
+							<span class="status__label status__label--all">Всего</span>
+							<span 
+								class="status__value"
+								data-js-todo-total
+								aria-live="polite">0</span>
+						</div>
+					</div>
+	
+					<div class="main__status-row">
+						<div class="status">
+							<span class="status__label status__label--completed"
+								>Выполнено</span
+							>
+							<span class="status__value" 
+								data-js-todo-completed-total
+								aria-live="polite"
+								>0</span
+							>
+						</div>
+					</div>
+				</div>
+	
+				<div class="main__tasks-empty hidden" data-js-todo-empty role="status" aria-live="polite">
+					<img
+						src="./images/files.svg"
+						alt="files"
+						width="56"
+						height="56"
+						class="main__tasks-empty-icon"
+						aria-hidden="true"
+					/>
+					<p>Задач нет</p>
+				</div>
+	
+				<div class="task">
+					<ul
+					class="task__list"
+					data-js-todo-completed-task
+					role="list"
+					aria-live="polite"
+				></ul>
+				</div>
+			</div>
+		</main>
+		<div class="snackbar" data-js-snackbar>Текст сообщения..</div>
+	</div>
+</body>
+</html>

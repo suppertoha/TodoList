@@ -1,0 +1,58 @@
+.header {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+
+  &__theme {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 15px;
+  }
+
+  &__wrapper {
+    padding: 68px 0 81px;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    transition: opacity 0.3s ease;
+
+    img {
+      margin-top: 15px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__logo-wrapper {
+    color: #f2f2f2;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-text {
+    color: #f2f2f2;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.2;
+
+    $colors: (
+      blue: #4ea8de,
+      violet: #8284fa,
+    );
+
+    @each $name, $value in $colors {
+      &--#{$name} {
+        color: $value;
+      }
+    }
+  }
+}

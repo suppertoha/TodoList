@@ -1,0 +1,490 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  line-height: 1.5;
+}
+
+a:where([class]) {
+  display: inline-flex;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where([fill]:not([fill=none], [fill^=url])) {
+  fill: currentColor;
+}
+
+:where([stroke]:not([stroke=none], [stroke^=url])) {
+  stroke: currentColor;
+}
+
+svg * {
+  transition-property: fill, stroke;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 770px;
+  padding: 0 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.visually-hidden:focus-visible {
+  outline: 2px solid #4ea8de;
+  outline-offset: 2px;
+}
+
+.header {
+  background-color: #0d0d0d;
+  color: #f2f2f2;
+}
+.header__theme {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 15px;
+}
+.header__wrapper {
+  padding: 68px 0 81px;
+}
+.header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.3s ease;
+}
+.header__logo img {
+  margin-top: 15px;
+}
+.header__logo:hover {
+  opacity: 0.7;
+}
+.header__logo-wrapper {
+  color: #f2f2f2;
+}
+.header__logo-wrap {
+  display: flex;
+  align-items: center;
+}
+.header__logo-text {
+  color: #f2f2f2;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.header__logo-text--blue {
+  color: #4ea8de;
+}
+.header__logo-text--violet {
+  color: #8284fa;
+}
+
+.main__wrapper {
+  position: relative;
+  padding-top: 65px;
+  padding-bottom: 40px;
+}
+.main__status {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.main__status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.main__tasks-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 64px 16px;
+  border-top: 1px solid #333333;
+  font-size: 16px;
+  font-weight: 700;
+  color: #808080;
+}
+.main__tasks-empty.hidden {
+  display: none;
+}
+.main__tasks-empty-icon {
+  width: 56px;
+  height: 56px;
+  opacity: 0.5;
+}
+
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #d9d9d9;
+  font-weight: 700;
+  font-size: 14px;
+}
+.status__label {
+  color: #d9d9d9;
+}
+.status__label--all {
+  color: #4ea8de;
+}
+.status__label--completed {
+  color: #8284fa;
+}
+.status__value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: #333333;
+  font-size: 12px;
+}
+
+.form {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+}
+.form__input {
+  flex: 1;
+  min-width: 200px;
+  min-height: 54px;
+  padding: 0 16px;
+  color: #808080;
+  background-color: #262626;
+  border: 1px solid #0d0d0d;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.form__input:focus {
+  color: #f2f2f2;
+  outline: none;
+  border-color: #4ea8de;
+}
+.form__input.error {
+  border-color: #bf3f3f;
+}
+.form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  max-height: 54px;
+  background-color: #1e6f9f;
+  color: #f2f2f2;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.form__submit:hover:not(:disabled) {
+  background-color: #165478;
+}
+.form__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.task__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #f2f2f2;
+}
+.task__list-item {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background-color: #262626;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  transition: transform 0.15s ease, top 0.15s ease;
+}
+.task__list-item.dragging {
+  opacity: 0.5;
+  transform: scale(1.03);
+}
+.task__list-item.done {
+  opacity: 0.5;
+  border: 2px solid green;
+}
+.task__list-item.done .task__text {
+  text-decoration: line-through;
+}
+.task__list-item.pinned {
+  border: 2px solid #bf3f3f;
+}
+.task__list-item:hover {
+  border-color: #808080;
+}
+.task__text {
+  flex: 1;
+  line-height: 1.4;
+  font-size: 14px;
+  color: #f2f2f2;
+}
+.task__btns {
+  display: flex;
+  gap: 6px;
+}
+.task__btns button {
+  display: flex;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+.task__btns button svg {
+  fill: #f2f2f2;
+}
+.task__done.active svg {
+  fill: green;
+}
+.task__pinned.active svg {
+  fill: #bf3f3f;
+}
+
+.hidden {
+  display: none;
+}
+
+.theme__icons {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.theme__icons-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.theme__icons-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+body.dark {
+  background-color: #f2f2f2;
+  color: #1a1a1a;
+}
+body.dark .header {
+  background-color: #e9e9e9;
+  color: #1a1a1a;
+}
+body.dark .snackbar {
+  background-color: #bf3f3f;
+}
+body.dark .form__input.error {
+  border-color: #bf3f3f;
+}
+body.dark .form__input {
+  color: #1a1a1a;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+}
+body.dark .form__input:focus {
+  border-color: #4ea8de;
+  color: #0d0d0d;
+}
+body.dark .form__input::-moz-placeholder {
+  color: #333333;
+}
+body.dark .form__input::placeholder {
+  color: #333333;
+}
+body.dark .task__text {
+  color: #1a1a1a;
+}
+body.dark .task__list-item {
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  color: #1a1a1a;
+}
+body.dark .task__btns button svg {
+  fill: #1a1a1a;
+}
+body.dark .task.dragging {
+  opacity: 0.5;
+  transform: scale(1.03);
+}
+body.dark .task.done {
+  opacity: 0.5;
+  border: 2px solid green;
+}
+body.dark .task.done .task__text {
+  text-decoration: line-through;
+}
+body.dark .task.pinned {
+  border: 2px solid #bf3f3f;
+}
+body.dark .task:hover {
+  border-color: #808080;
+}
+body.dark .task__done.active svg {
+  fill: green;
+}
+body.dark .task__pinned.active svg {
+  fill: #bf3f3f;
+}
+
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #3e1821;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  font-size: 16px;
+}
+.snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 10px;
+    opacity: 1;
+  }
+}

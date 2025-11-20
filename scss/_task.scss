@@ -1,0 +1,80 @@
+.task {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #f2f2f2;
+  }
+
+  &__list-item {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background-color: #262626;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    transition: transform 0.15s ease, top 0.15s ease;
+
+    &.dragging {
+      opacity: 0.5;
+      transform: scale(1.03);
+    }
+    &.done {
+      opacity: 0.5;
+      border: 2px solid green;
+
+      .task__text {
+        text-decoration: line-through;
+      }
+    }
+
+    &.pinned {
+      border: 2px solid #bf3f3f;
+    }
+
+    &:hover {
+      border-color: #808080;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    line-height: 1.4;
+    font-size: 14px;
+    color: #f2f2f2;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 6px;
+
+    button {
+      display: flex;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+
+      svg {
+        fill: #f2f2f2;
+      }
+    }
+  }
+
+  &__done {
+    &.active {
+      svg {
+        fill: green;
+      }
+    }
+  }
+
+  &__pinned {
+    &.active {
+      svg {
+        fill: #bf3f3f;
+      }
+    }
+  }
+}
